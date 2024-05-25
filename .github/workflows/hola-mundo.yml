@@ -1,0 +1,16 @@
+name: hola-mundo
+on: 
+    push:
+        branches: [ "main" ]
+    pull_request:
+        branches: [ "main" ]
+jobs:
+    setup-go:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-go@v5
+              with:
+                go-version: '1.16.1' # The Go version to download (if necessary) and use.
+            - name: execute-hello-world
+              run: go run hello.go
